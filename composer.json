@@ -1,0 +1,17 @@
+{
+    "name": "hasandotprayoga/format-response",
+    "description": "Laravel Format Response",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Hasan Prayoga",
+            "email": "hasandotprayoga@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "FormatResponse\\": "src/"
+        }
+    },
+    "require": {}
+}
