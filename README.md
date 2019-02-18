@@ -3,8 +3,8 @@
 ## Installation
 
 Add to composer.json
-```json
-    "require-dev": {
+```
+    "require": {
         ...
         "hasandotprayoga/format-response": "*"
     },
