@@ -45,12 +45,13 @@ On your terminal, run `composer update`
 Change your return response to **$this->response();**
 
     $this->response($results, $resCode, $messages, $metaData, $request);
-    @param $results default []
-    @param $resCode default 200
-    @param $messages default ''
-    @param $metaData default []
-    @param $request default []
-
+    /*
+        @param $results default []
+        @param $resCode default 200
+        @param $messages default ''
+        @param $metaData default []
+        @param $request default []
+    */
 Example
 
     return $this->response([1,2,4], 200, 'ok', [
