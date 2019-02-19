@@ -53,12 +53,12 @@ trait FormatResponse
 
     public function response($results=[], $resCode = 200, $messages=[], $metaData=[], $request=[])
     {
-        $this->results = $results;
-        $this->responseCode = $resCode;
-        $this->messages = $messages;
-        $this->metaData = $metaData;
-        $this->request = $request;
-        
+        if(empty($this->results)){$this->results = $results;}
+        if(empty($this->responseCode)){$this->responseCode = $resCode;} 
+        if(empty($this->messages)){$this->messages = $messages;}
+        if(empty($this->metaData)){$this->metaData = $metaData;}
+        if(empty($this->request)){$this->request = $request;}
+
         return response()
             ->json(
                 $this->data(),
