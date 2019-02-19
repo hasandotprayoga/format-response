@@ -42,9 +42,8 @@ On your terminal, run `composer update`
     ```
 
 ## How to use
-Change your return response to `$this->response();`
+Change your return response to **$this->response();**
 
-    ```php
     return $this->response([1,2,4], 200, 'ok', [
         'selectedPage' => 1, 
         'selectedItem' => NULL, 
@@ -58,11 +57,9 @@ Change your return response to `$this->response();`
         ],
         'post'=>[]
     ]);
-    ```
+    
+    // Or
 
-    Or
-
-    ```php
     $this->results = [1,2,4];
     $this->resCode = 200;
     $this->messages = 'Ok';
@@ -82,7 +79,6 @@ Change your return response to `$this->response();`
     ];
 
     return $this->response();
-    ```
 
 ## Example Response
 ```json
