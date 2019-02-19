@@ -47,3 +47,5 @@ On your terminal, run `composer update`
         return $controller->response();
     }
     ```
+
+## How to use

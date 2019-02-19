@@ -22,8 +22,8 @@ trait FormatResponse
     ];
 
     public $results         =[];
-    public $responseCode    =504;
-    public $messages;
+    public $responseCode    =200;
+    public $messages = [];
     public $metaData        =[];
     public $request         =[];
 
@@ -51,8 +51,14 @@ trait FormatResponse
         return $data;
     }
 
-    public function response()
+    public function response($results=[], $resCode = 200, $messages=[], $metaData=[], $request=[])
     {
+        $this->results = $results;
+        $this->responseCode = $resCode;
+        $this->messages = $messages;
+        $this->metaData = $metaData;
+        $this->request = $request;
+        
         return response()
             ->json(
                 $this->data(),
