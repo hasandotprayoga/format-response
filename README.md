@@ -7,14 +7,7 @@ Add to composer.json
     "require": {
         ...
         "hasandotprayoga/format-response": "*"
-    },
-    "repositories": [
-        ...
-        {
-            "type": "vcs",
-            "url": "https://github.com/hasandotprayoga/format-response.git"
-        }
-    ]
+    }
 ```
 
 On your terminal, run `composer update`
@@ -49,3 +42,44 @@ On your terminal, run `composer update`
     ```
 
 ## How to use
+Change your return response to `$this->response();`
+
+    ```php
+    return $this->response([1,2,4], 200, 'ok', [
+        'selectedPage' => 1, 
+        'selectedItem' => NULL, 
+        'totalPage' => 2, 
+        'totalItem' => 5, 
+        'totalItemPerPage' => 5 
+    ], [
+        'get'=>[
+            'field1'=>1,
+            'field2'=>2
+        ],
+        'post'=>[]
+    ]);
+    ```
+
+    Or
+
+    ```php
+    $this->results = [1,2,4];
+    $this->resCode = 200;
+    $this->messages = 'Ok';
+    $this->metaData = [
+        'selectedPage' => 1, 
+        'selectedItem' => NULL, 
+        'totalPage' => 2, 
+        'totalItem' => 5, 
+        'totalItemPerPage' => 5 
+    ];
+    $this->request = [
+        'get'=>[
+            'field1'=>1,
+            'field2'=>2
+        ],
+        'post'=>[]
+    ];
+
+    return $this->response();
+    ```
