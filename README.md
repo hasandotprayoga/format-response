@@ -83,3 +83,49 @@ Change your return response to `$this->response();`
 
     return $this->response();
     ```
+
+## Example Response
+```json
+{
+    "code": 200,
+    "description": "Ok",
+    "response": {
+        "results": [
+            {
+                "id": 1,
+                "balance": 100000,
+                "recStatus": "DELETE",
+                "recTimeCreate": "2019-01-16 17:10:01",
+                "recTimeUpdate": "2019-01-29 04:39:22"
+            },
+            {
+                "id": 2,
+                "balance": null,
+                "recStatus": "PUBLISH",
+                "recTimeCreate": "2018-04-12 23:36:03",
+                "recTimeUpdate": null
+            },
+            {
+                "id": 3,
+                "balance": null,
+                "recStatus": "PUBLISH",
+                "recTimeCreate": "2018-04-12 23:10:03",
+                "recTimeUpdate": null
+            },
+        ],
+        "messages": "ok",
+        "metaData": {
+            "selectedPage": 1,
+            "selectedItem": null,
+            "totalPage": 1,
+            "totalItem": 3,
+            "totalItemPerPage": 3
+        }
+    },
+    "request": {
+        "get": {
+            "id": "1"
+        }
+    },
+}
+```
