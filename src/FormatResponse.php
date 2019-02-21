@@ -22,7 +22,7 @@ trait FormatResponse
     ];
 
     public $results         =[];
-    public $responseCode    =200;
+    public $responseCode    ='';
     public $messages = [];
     public $metaData        =[];
     public $request         =[];
