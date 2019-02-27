@@ -18,7 +18,7 @@ On your terminal, run `composer update`
     ```php
     class Controller extends BaseController
     {
-        use \FormatResponse\FormatResponse; // add this line
+        use \hasandotprayoga\FormatResponse; // add this line
     }  
     ```
 

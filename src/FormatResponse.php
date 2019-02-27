@@ -4,8 +4,15 @@ namespace FormatResponse;
 
 use Illuminate\Http\Request;
 
+/**
+ * Trait FormatResponse
+ * @package FormatResponse
+ */
 trait FormatResponse
 {
+    /**
+     * @var array
+     */
     public $responseCodes = [
         200 => 'Ok',
         204 => 'No Content',
@@ -21,17 +28,38 @@ trait FormatResponse
         504 => 'Gateway Timeout. Web server menunggu respon terlalu lama'
     ];
 
+    /**
+     * @var array
+     */
     public $results         =[];
+    /**
+     * @var string
+     */
     public $responseCode    ='';
+    /**
+     * @var array
+     */
     public $messages = [];
+    /**
+     * @var array
+     */
     public $metaData        =[];
+    /**
+     * @var array
+     */
     public $request         =[];
 
+    /**
+     * @return mixed
+     */
     public function getResDescription()
     {
         return $this->responseCodes[$this->responseCode];
     }
 
+    /**
+     * @return array
+     */
     public function data()
     {
         $data = [
@@ -51,6 +79,14 @@ trait FormatResponse
         return $data;
     }
 
+    /**
+     * @param array $results
+     * @param int $resCode
+     * @param array $messages
+     * @param array $metaData
+     * @param array $request
+     * @return mixed
+     */
     public function response($results=[], $resCode = 200, $messages=[], $metaData=[], $request=[])
     {
         if(empty($this->results)){$this->results = $results;}
@@ -66,7 +102,12 @@ trait FormatResponse
             );
     }
 
-    public function buildFailedValidationResponse(Request $request, array $errors) 
+    /**
+     * @param Request $request
+     * @param array $errors
+     * @return mixed
+     */
+    public function buildFailedValidationResponse(Request $request, array $errors)
     {
         $this->responseCode = 422;
         $this->resulst = [];
