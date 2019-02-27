@@ -110,7 +110,7 @@ trait FormatResponse
     public function buildFailedValidationResponse(Request $request, array $errors)
     {
         $this->responseCode = 422;
-        $this->resulst = [];
+        $this->results = [];
         $this->messages = $errors;
         return $this->response();
     }
