@@ -25,17 +25,23 @@ On your terminal, run `composer update`
 2. Open `app\Exceptions\Handler.php`, edit method render like this:
 
     ```php
-    public function render($request, Exception $e)
+    public function render($request, Exception $exception)
     {
-        if($e instanceof ValidationException) {
-            return parent::render($request, $e);
+        if($exception instanceof ValidationException) {
+            return parent::render($request, $exception);
         }
 
-        $rendered = parent::render($request, $e);
-        
+        $rendered = parent::render($request, $exception);
+            
+        $error = [
+            'error'=>$exception->getMessage(),
+            'file'=>$exception->getFile(),
+            'line'=>$exception->getLine()
+        ];
+
         $controller = app('\App\Http\Controllers\Controller');
         $controller->responseCode = $rendered->getStatusCode();
-        $controller->messages = $e->getMessage();
+        $controller->messages = $error;
 
         return $controller->response();
     }
